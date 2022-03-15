@@ -1,0 +1,108 @@
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background_color
+{
+    background-color: #34393f;
+}
+
+.contenedor
+{
+    padding: 20px 20px 30px 20px;
+}
+
+.tituloRegistre
+{
+    color: #117be5;
+}
+
+.tituloLogin
+{
+    color: #2e9f4a;
+}
+
+form
+{
+    margin-top: 16px;
+}
+
+label
+{
+    color: white;
+}
+
+.encabezado
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 108px 0px 0px;
+    margin-bottom: 20px;
+}
+
+.titulo
+{
+    border-bottom: 1px solid rgba(179, 167, 167, 0.637);
+    padding: 0px 0px 40px 104px;
+    width: 40%;
+}
+
+.saludo
+{
+    font-size: 36px;
+    font-weight: bold;
+    color: gray;
+}
+
+a
+{
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #13a4bd;
+}
+
+a:hover
+{
+    text-decoration: none;
+}
+
+h2
+{
+    text-align: center;
+    color: white;
+}
+
+.margin_bottom
+{
+    margin-bottom: 10px;
+}
+
+.cant_sent
+{
+    font-size: 24px;
+    color: #a0d4b8;
+}
+
+.padding
+{
+    padding: 8px;
+}
+
+.botonDelete
+{
+    background-color:#d63841;
+    color: white;
+    margin: 20px 0px 20px 0px;
+    text-decoration: none;
+}
+
+.botonDelete:hover
+{
+    text-decoration: none;
+    color: white;
+}

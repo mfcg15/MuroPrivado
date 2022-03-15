@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+{% block titulo%}
+    <title>Wall One</title>
+{% endblock %}
+{% block body %}
+    <body>
+        <div class="encabezado">
+            <div class="titulo">
+                <h1>Coding Dojo Wall</h1>
+            </div>
+            <div>
+                {% for x in usuario %}
+                    <p class="saludo">Welcome {{x.first_name}} {{x.last_name}} !!!</p>
+                {% endfor %}
+            </div>
+            <div>
+                <a href="/logout" style="text-decoration: none; color: white;">Logout</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-5 background_color">
+                    <h2>{{cant_mensaje}} message(s) for you</h2>
+                    <hr style="height: 2px; background-color: #ffbf00;">
+                    {% for x in all_emisores %}
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-body">
+                            <h5 class="card-title">{{x.emisores}} said {{x.tiempo}} ago</h5>
+                            <p class="card-text">{{x.mensaje}}</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="padding">
+                                    <a href="/delete/{{x.id}}" class="botonDelete">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-2"></div>
+                <div class="col-5 background_color">
+                    <h2>Send a Message:</h2>
+                    <hr style="height: 2px; background-color: #ffbf00;">
+                    <p class="cant_sent">You have sent {{cant_men_enviados}} message(s) so far.</p>
+                    {% with messages = get_flashed_messages(category_filter=['mensaje']) %}
+                        {% if messages %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in messages %}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                    {% for usuario in all_usuarios %}
+                        <div>
+                            <form action="/create_mensaje" method="post" class="margin_bottom">
+                                <div class="mb-3">
+                                    <input type="hidden" name="emisor_id" value="{{idusuario}}">
+                                    <input type="hidden" name="receptor_id" value="{{usuario.id}}">
+                                    <label for="mensaje" class="form-label">Message {{usuario.first_name}} {{usuario.last_name}}: </label>
+                                    <textarea class="form-control" rows="3" name="mensaje"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-warning ">Message</button>
+                            </form>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+{% endblock %}
